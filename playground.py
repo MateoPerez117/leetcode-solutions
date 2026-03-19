@@ -1,20 +1,10 @@
-n = 5
-uno = 1
-output = 0
 
-if n == 0:
-    print(1)
-else:
-    binario = []
+listlen = 5
 
-    while n > 0:
-        residuo = n % 2
-        binario.append(residuo)
-        n = n // 2
+lala = listlen % 2
+middle = listlen / 2
 
-    for i in range(len(binario) - 1, -1, -1):
-        if binario[i] == 0:
-            output += uno
-        uno *= 2
-        
-    print(output)
+if lala != 0:
+    middle = int(middle) + 1
+    
+print (middle)
