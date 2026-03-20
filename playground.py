@@ -1,10 +1,6 @@
 
-listlen = 5
 
-lala = listlen % 2
-middle = listlen / 2
+stack = [5, 4, 2, 1]
 
-if lala != 0:
-    middle = int(middle) + 1
-    
-print (middle)
+stack.pop(-1)
+print(stack[-1])
