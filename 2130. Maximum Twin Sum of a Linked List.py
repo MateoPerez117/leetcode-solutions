@@ -15,7 +15,7 @@ def max_twinsum(head):
     lenlist = 0
     maximo = float('-inf')
     contador2 = 0
-    current2 = head
+    current2 = head 
     
     while current:
         contador += 1
@@ -44,3 +44,22 @@ def max_twinsum(head):
 maximo = max_twinsum(head)
 
 print(maximo)
+
+#another solution to this problem
+
+def max_twin_sum(head):
+
+    current = head
+    maximo = float('-inf')
+    arr = []
+
+    while current:
+        arr.append(current.value)
+        current = current.next
+    
+    for i in range(len(arr // 2)):
+        suma = arr[i] + arr[len(arr - 1 -i)]
+        maximo = max(maximo, suma)
+
+    return maximo
+
