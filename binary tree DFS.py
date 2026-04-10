@@ -1,31 +1,24 @@
 class TreeNode:
-    def __init__(self, val=0, left =None, right=None):
+    def __init__(self, val):
         self.val = val
-        self.right = right
-        self.left = left
+        self.left = None
+        self.right = None
 
-root = TreeNode(1)
 
-a = TreeNode(2)
-b = TreeNode(3) 
-c = TreeNode(4)
-d = TreeNode(5)
+root = TreeNode(2)
+root.left = TreeNode(1)
+root.right = TreeNode(3)
 
-root.left = a
-root.right = b
-
-a.left = c
-a.right = d
-
-def dfs_preorder(node):
+def contar(node):
 
     if not node:
-        return
+        return 0
 
-    print(node.val)
+    izquierda = contar(node.left)
+    derecha = contar(node.right)
 
-    dfs_preorder(node.left)
+    return 1 + izquierda + derecha
 
-    dfs_preorder(node.right)
+a = contar(root)
 
-print(dfs_preorder(root))
+print(a)
