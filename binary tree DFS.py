@@ -1,33 +1,31 @@
 class TreeNode:
-    def __init__(self, val = 0, left = None, right = None):
+    def __init__(self, val=0, left =None, right=None):
         self.val = val
-        self.left = left
         self.right = right
+        self.left = left
 
+root = TreeNode(1)
 
-root = TreeNode(3)
-b = TreeNode(9)
-c = TreeNode(20)
-d = TreeNode(15)
-e = TreeNode(7)
+a = TreeNode(2)
+b = TreeNode(3) 
+c = TreeNode(4)
+d = TreeNode(5)
 
+root.left = a
+root.right = b
 
+a.left = c
+a.right = d
 
+def dfs_preorder(node):
 
-root.left = b
-root.right = c
-c.left = d
-c.right = e
+    if not node:
+        return
 
+    print(node.val)
 
-def max_depth(root):
+    dfs_preorder(node.left)
 
+    dfs_preorder(node.right)
 
-    current = root
-    contador = 0
-    maxcontador = 0
-
-
-    while current:
-        contador += 1
-        current.left = current
+print(dfs_preorder(root))
