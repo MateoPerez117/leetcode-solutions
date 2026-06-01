@@ -1,6 +1,39 @@
 
+word1 = "ab"
+word2 = "pqrs"
 
-stack = [5, 4, 2, 1]
+word3 = ""
 
-stack.pop(-1)
-print(stack[-1])
+ultimo = 0
+
+wordlenght1 = len(word1)
+wordlenght2 = len(word2)
+
+
+if wordlenght1 > wordlenght2:
+    for i in range(wordlenght2):
+        word3.append(word1[i])
+        word3.append(word2[i])
+            
+    ultimo = wordlenght2
+    agregar = word1[ultimo:] 
+    word3.append(agregar)
+
+    resultado = "".join(word3)
+
+    print (resultado)
+
+else:
+    for i in range(wordlenght1):
+        word3.append(word1[i])
+        word3.append(word2[i])
+
+    ultimo = wordlenght1
+    agregar = word2[ultimo:] 
+    word3.append(agregar)
+
+    resultado = "".join(word3)
+
+    print (resultado)
+    
+        
