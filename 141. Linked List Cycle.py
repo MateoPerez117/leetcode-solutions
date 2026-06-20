@@ -10,21 +10,18 @@ head.next.next = ListNode(3)
 head.next.next.next = ListNode(4)
 head.next.next.next.next = ListNode(5)
 
-def Removenode(node):
-    contador = 0
-    current = node
-    flag = True
+def linkedlist(node):
 
+    slow = head
+    fast = head
 
-    while current or contador <1000:
-        if not current:
-            flag = False
-            break
-        
-        current = current.next
-        contador += 1
+    while slow and fast.next:
+        slow = slow.next
+        fast = fast.next.next
+        if slow == fast:
+            return True
+    
+    return False
 
-    print (flag)
-
-Removenode(head)
+linkedlist(head)
 
