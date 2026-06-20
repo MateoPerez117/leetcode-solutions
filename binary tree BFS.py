@@ -1,10 +1,10 @@
 from collections import deque
 
 class TreeNode:
-    def __init__(self, val):
+    def __init__(self, val=0, left=None, right=None):
         self.val = val
-        self.left = None
-        self.right = None
+        self.left = left
+        self.right = right
 
 
 root = TreeNode(1)
@@ -12,53 +12,18 @@ root.left = TreeNode(2)
 root.right = TreeNode(3)
 root.left.left = TreeNode(4)
 root.left.right = TreeNode(5)
-root.right.right = TreeNode(6)
 
+from collections import deque
 
+queue = deque([root])
 
-def bfs(node):
-    if not node:
-        return
+while queue:
+    node = queue.popleft()
 
-    queue = deque([node])
-    result = []
-    lala = []
+    # proceso el nodo
 
-    while queue:
-        level_size = len(queue)
-        
-        for i in range(level_size):
-            node = queue.popleft()
+    if node.left:
+        queue.append(node.left)
 
-            result.append(node.val)
-
-            if node.left:
-                queue.append(node.left)
-
-            if node.right:
-                queue.append(node.right)
-
-        
-        lala.append(result)
-        result = []
-        
-    return lala
-
-a = bfs(root)
-
-print (a)
-
-#patrón mental bfs
-
-# queue = deque([root])
-
-# while queue:
-#     node = queue.popleft()
-
-#     # proceso el nodo
-
-#     if node.left:
-#         queue.append(node.left)
-
-#     if node.right:
-#         queue.append(node.right)
+    if node.right:
+        queue.append(node.right)
